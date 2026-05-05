@@ -8,7 +8,9 @@ const route = useRoute();
       <Header />
     </div>
     <div class="content" m-0 flex>
-      <div h-full class='sidebar' :class="{ 'hidden': route.meta.hideSidebar, 'contentMain': route.meta.contentMain}"></div>
+      <div h-full class='sidebar' :class="{ 'hidden': route.meta.hideSidebar, 'contentMain': route.meta.contentMain}">
+        <SearchEntry />
+      </div>
       <div h-full class='contentSlot' :class="{ 'contentMain': route.meta.contentMain}">
         <div h-8>
           {{ route.meta.menuTitle || 'Dictionary' }}
