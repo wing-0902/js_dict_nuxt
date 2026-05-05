@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 definePageMeta({
-  showSidebar: true,
+  hideSidebar: false,
+  contentMain: true,
   menuTitle: 'Welcome!'
 });
 </script>
