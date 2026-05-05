@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "clean": "pnpm dlx nuxi clean",
+    "clean": "pnpm dlx nuxi cleanup",
     "dev": "nuxt dev",
     "format": "prettier --write .",
     "generate": "nuxt generate",
@@ -12,12 +12,14 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@fontsource/zen-kaku-gothic-new": "^5.2.7",
     "@unocss/reset": "^66.6.8",
     "nuxt": "^4.4.4",
     "vue": "^3.5.33",
     "vue-router": "^5.0.6"
   },
   "devDependencies": {
+    "@iconify-json/hugeicons": "^1.2.27",
     "@unocss/nuxt": "^66.6.8",
     "prettier": "^3.8.3",
     "sass": "^1.99.0",
