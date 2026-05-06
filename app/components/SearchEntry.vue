@@ -1,10 +1,11 @@
 <script setup lang="ts">
 const query = ref('');
+const mode = ref('見出し');
 </script>
 
 <template>
   <div h-full w-full p-3 pr-1>
-    <section h-full w-full p-3 class="root">
+    <section h-full w-full flex flex-col p-3 class="root">
       <div h-10 w-full flex class="searchSlot">
         <input h-full w-full type="text" v-model="query" />
         <button
@@ -15,9 +16,13 @@ const query = ref('');
         ></button>
       </div>
       <div mt-2 h-8 w-full flex class="changeButtonSlot">
-        <button>見出し</button>
-        <button>用例</button>
-        <button>全文</button>
+        <button :class="{select: mode === '見出し'}" @click="mode = '見出し'">見出し</button>
+        <button :class="{select: mode === '用例'}" @click="mode = '用例'">用例</button>
+        <button :class="{select: mode === '全文'}" @click="mode = '全文'">全文</button>
+      </div>
+
+      <div class='others' h-full w-full mt-3>
+        <TitleSearch v-if="mode === '見出し'" />
       </div>
     </section>
   </div>
@@ -62,6 +67,10 @@ const query = ref('');
       width: calc(100% / 3);
       font-family: 'Zen Kaku Gothic New', sans-serif;
       font-size: 18px;
+      &.select {
+        background-color: var(--themeColor);
+        color: var(--codeBack);
+      }
     }
   }
 }
