@@ -5,13 +5,13 @@ const props = defineProps({
 </script>
 
 <template>
-<div class="root">
-  <div class="header">
+<div w-full class="root">
+  <div w-full class="header">
     <div class="tab">
       <p>{{ props.title }}</p>
     </div>
   </div>
-  <div class="children">
+  <div w-full class="children">
     <slot />
   </div>
 </div>
@@ -19,7 +19,6 @@ const props = defineProps({
 
 <style lang="scss" scoped>
   .root {
-    width: 100%;
     margin: 8px auto;
     background-color: var(--codeBack);
     border-radius: 4px;
@@ -48,6 +47,9 @@ const props = defineProps({
     .children {
       margin: 0 0 -7px;
       padding: 0;
+      :deep() {
+        overflow-x: scroll;
+      }
     }
   }
 </style>

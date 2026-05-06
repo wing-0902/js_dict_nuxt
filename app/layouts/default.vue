@@ -84,6 +84,7 @@ const route = useRoute();
 
 .slotBox {
   height: calc(100% - 64px);
+  width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
   display: block;

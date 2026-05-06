@@ -18,7 +18,7 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
 
 <template>
   <!-- Render the blog post as Prose & Vue components -->
-  <div w-full v-if="post">
+  <div w-full v-if="post" class='root'>
     <h1>
       {{ post.title }}
       <small
@@ -33,7 +33,7 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
       ></small>
       <small class="detail">（{{ post.品詞 }}）</small>
     </h1>
-    <div class='content'>
+    <div w-full class='content'>
       <ContentRenderer :value="post" />
     </div>
   </div>
@@ -44,6 +44,11 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
 </template>
 
 <style lang="scss" scoped>
+.root {
+  min-width: 0;
+  overflow-x: hidden;
+}
+
 .detail {
   font-family: 'Zen Maru Gothic', sans-serif;
   font-size: 18px;
@@ -52,7 +57,6 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
 .content {
   padding: 0 4px;
   overflow-x: hidden;
-  width: 100%;
   :deep() {
     h2, h3, h4, h5, h6 {
       a {
@@ -70,6 +74,17 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
         }
       }
     }
+    pre {
+      max-width: 100%;
+      overflow-x: scroll;
+      white-space: pre;
+      word-wrap: break-word;
+    }
+    code {
+      word-break: break-all;
+    }
+    width: 100%;
+    display: flow-root;
   }
 }
 </style>
