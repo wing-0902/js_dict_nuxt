@@ -7,7 +7,7 @@ const mode = ref('見出し');
   <div h-full w-full p-3 pr-1>
     <section h-full w-full flex flex-col p-3 class="root">
       <div h-10 w-full flex class="searchSlot">
-        <input h-full w-full type="text" v-model="query" />
+        <input h-full w-full type="text" placeholder='検索..' v-model="query" />
         <button
           h-full
           w-7
