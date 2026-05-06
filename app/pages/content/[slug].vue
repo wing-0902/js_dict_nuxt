@@ -5,8 +5,11 @@ const { data: post } = await useAsyncData(`dict-${slug}`, () => {
 });
 
 useSeoMeta({
-  title: post.value?.title + " - JavaScript"
-})
+  title: post.value?.title + ' - JavaScript'
+});
+
+const route = useRoute();
+route.meta.menuTitle = post.value?.title || 'Dictionary';
 </script>
 
 <template>
@@ -14,8 +17,16 @@ useSeoMeta({
   <div v-if="post">
     <h1>
       {{ post.title }}
-      <small class='detail' i-hugeicons-java-script v-if="post.jsInclude"></small>
-      <small class='detail' i-hugeicons-typescript-01 v-if="post.tsInclude"></small>
+      <small
+        class="detail"
+        i-hugeicons-java-script
+        v-if="post.jsInclude"
+      ></small>
+      <small
+        class="detail"
+        i-hugeicons-typescript-01
+        v-if="post.tsInclude"
+      ></small>
       <small class="detail">（{{ post.品詞 }}）</small>
     </h1>
     <ContentRenderer :value="post" />
