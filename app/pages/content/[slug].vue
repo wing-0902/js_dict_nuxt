@@ -33,7 +33,9 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
       ></small>
       <small class="detail">（{{ post.品詞 }}）</small>
     </h1>
-    <ContentRenderer :value="post" />
+    <div class='content'>
+      <ContentRenderer :value="post" />
+    </div>
   </div>
   <div v-else>
     <h1>Not Found</h1>
@@ -45,5 +47,27 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
 .detail {
   font-family: 'Zen Maru Gothic', sans-serif;
   font-size: 18px;
+}
+
+.content {
+  padding: 0 4px;
+  :deep() {
+    h2, h3, h4, h5, h6 {
+      a {
+        color: white;
+        text-decoration: none;
+        &::before {
+          content: '#';
+          transition: opacity 0.3s ease;
+          opacity: 0;
+          left: 0;
+          color: white;
+        }
+        &:hover::before {
+          opacity: 0.3;
+        }
+      }
+    }
+  }
 }
 </style>
