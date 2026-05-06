@@ -16,7 +16,7 @@ export class MyDatabase extends Dexie {
   }
 }
 
-export const db = process.client ? new MyDatabase() : null as any;
+export const db = process.client ? new MyDatabase() : (null as any);
 
 export default async function saveHistory(word: string) {
   if (!db) return; // サーバーサイドでは何もしない

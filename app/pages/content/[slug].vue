@@ -10,7 +10,7 @@ useSeoMeta({
 
 definePageMeta({
   contentMain: true
-})
+});
 
 const route = useRoute();
 route.meta.menuTitle = post.value?.title || 'Dictionary';

@@ -18,7 +18,7 @@ const { data: words } = await useAsyncData('all-dictionary', async () => {
 // queryプロパティに基づいてフィルタリングされたリストを作成
 const filteredWords = computed(() => {
   if (!props.query) return words.value;
-  
+
   const searchLower = props.query.toLowerCase();
   return words.value?.filter((word) => {
     // タイトルまたはパスに検索語が含まれているかチェック
@@ -32,9 +32,9 @@ const filteredWords = computed(() => {
 async function handleSaveHistory(word: string | undefined) {
   if (!word || word.trim() === '') return;
 
-   if (typeof window !== 'undefined') {
-      await saveHistory(word);
-    }
+  if (typeof window !== 'undefined') {
+    await saveHistory(word);
+  }
 }
 </script>
 
@@ -43,7 +43,13 @@ async function handleSaveHistory(word: string | undefined) {
     <template v-for="word in filteredWords" :key="word.path">
       <hr />
       <li w-full>
-        <NuxtLink @mousedown="handleSaveHistory(query)" :to="word.actualPath" flex w-full justify-between>
+        <NuxtLink
+          @mousedown="handleSaveHistory(query)"
+          :to="word.actualPath"
+          flex
+          w-full
+          justify-between
+        >
           {{ word.title }}
           <div>
             <span v-if="word.jsInclude" i-hugeicons-java-script></span>
