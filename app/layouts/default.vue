@@ -55,6 +55,7 @@ const route = useRoute();
 }
 
 .sidebar {
+  flex-shrink: 0;
   width: 460px;
   &.hidden {
     display: none;
@@ -73,9 +74,11 @@ const route = useRoute();
 }
 
 .contentSlot {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   @media (max-width: 900px) {
     width: 0;
+    flex: none;
     &.contentMain {
       width: 100%;
     }
