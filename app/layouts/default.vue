@@ -27,7 +27,7 @@ const route = useRoute();
         :class="{ contentMain: route.meta.contentMain }"
       >
         <div h-8 w-full>
-          <div h-full w-full class='menuBar' flex justify-center items-center>
+          <div h-full w-full class="menuBar" flex justify-center items-center>
             {{ route.meta.menuTitle || 'Dictionary' }}
           </div>
         </div>
@@ -35,7 +35,7 @@ const route = useRoute();
           <slot />
         </div>
         <div h-8 w-full>
-          <div h-full w-full class='menuBar' flex justify-center items-center>
+          <div h-full w-full class="menuBar" flex justify-center items-center>
             Share
           </div>
         </div>
@@ -86,5 +86,7 @@ const route = useRoute();
   height: calc(100% - 64px);
   overflow-x: hidden;
   overflow-y: scroll;
+  display: block;
+  text-align: left;
 }
 </style>
