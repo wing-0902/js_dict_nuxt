@@ -1,8 +1,8 @@
-<script setup lang='ts'>
-const slug = useRoute().params.slug
+<script setup lang="ts">
+const slug = useRoute().params.slug;
 const { data: post } = await useAsyncData(`blog-${slug}`, () => {
-  return queryCollection('dictionary').path(`/dict/${slug}`).first()
-})
+  return queryCollection('dictionary').path(`/dict/${slug}`).first();
+});
 </script>
 
 <template>
@@ -12,7 +12,7 @@ const { data: post } = await useAsyncData(`blog-${slug}`, () => {
       {{ post.title }}
       <small i-hugeicons-java-script v-if="post.jsInclude">JS</small>
       <small i-hugeicons-typescript-01 v-if="post.tsInclude">TS</small>
-      <small>（{{ post.品詞 }}）</small>
+      <small class="detail">（{{ post.品詞 }}）</small>
     </h1>
     <ContentRenderer :value="post" />
   </div>
@@ -21,3 +21,9 @@ const { data: post } = await useAsyncData(`blog-${slug}`, () => {
     <p>読み込み中またはコンテンツが存在しません．</p>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.detail {
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+</style>
