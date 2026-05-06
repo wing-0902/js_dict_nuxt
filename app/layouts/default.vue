@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 const route = useRoute();
 </script>
 
@@ -8,14 +8,25 @@ const route = useRoute();
       <Header />
     </div>
     <div class="content" m-0 flex>
-      <div h-full class='sidebar' :class="{ 'hidden': route.meta.hideSidebar, 'contentMain': route.meta.contentMain}">
+      <div
+        h-full
+        class="sidebar"
+        :class="{
+          hidden: route.meta.hideSidebar,
+          contentMain: route.meta.contentMain
+        }"
+      >
         <SearchEntry />
       </div>
-      <div h-full class='contentSlot' :class="{ 'contentMain': route.meta.contentMain}">
+      <div
+        h-full
+        class="contentSlot"
+        :class="{ contentMain: route.meta.contentMain }"
+      >
         <div h-8>
           {{ route.meta.menuTitle || 'Dictionary' }}
         </div>
-        <div class='slotBox'>
+        <div class="slotBox">
           <slot />
         </div>
         <div h-8></div>

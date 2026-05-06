@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 definePageMeta({
   hideSidebar: false,
   contentMain: true,
