@@ -19,6 +19,7 @@
     "@nuxt/content": "^3.13.0",
     "@unocss/reset": "^66.6.8",
     "better-sqlite3": "^12.9.0",
+    "dexie": "^4.4.2",
     "nuxt": "^4.4.4",
     "vue": "^3.5.33",
     "vue-router": "^5.0.6",

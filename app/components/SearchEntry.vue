@@ -28,7 +28,7 @@ const mode = ref('見出し');
       </div>
 
       <div class="others" h-full w-full mt-3>
-        <TitleSearch v-if="mode === '見出し'" />
+        <TitleSearch :query="query" v-if="mode === '見出し'" />
       </div>
     </section>
   </div>
