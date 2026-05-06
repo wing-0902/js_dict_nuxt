@@ -13,12 +13,17 @@ const { data: words } = await useAsyncData('all-dictionary', async () => {
   <ul class="listRoot">
     <template v-for="word in words" :key="word.path">
       <hr />
-      <li>
-        <NuxtLink :to="word.actualPath">
+      <li w-full>
+        <NuxtLink :to="word.actualPath" flex w-full justify-between>
           {{ word.title }}
+          <div>
+            <span v-if="word.jsInclude" i-hugeicons-java-script></span>
+            <span v-if="word.tsInclude" i-hugeicons-typescript-01></span>
+          </div>
         </NuxtLink>
       </li>
     </template>
+    <hr />
   </ul>
 </template>
 
@@ -36,6 +41,7 @@ const { data: words } = await useAsyncData('all-dictionary', async () => {
     a {
       color: var(--themeColor);
       text-decoration: none;
+      
     }
   }
 }
