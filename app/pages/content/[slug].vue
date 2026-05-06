@@ -10,8 +10,8 @@ const { data: post } = await useAsyncData(`blog-${slug}`, () => {
   <div v-if="post">
     <h1>
       {{ post.title }}
-      <small i-hugeicons-java-script v-if="post.jsInclude">JS</small>
-      <small i-hugeicons-typescript-01 v-if="post.tsInclude">TS</small>
+      <small class='detail' i-hugeicons-java-script v-if="post.jsInclude"></small>
+      <small class='detail' i-hugeicons-typescript-01 v-if="post.tsInclude"></small>
       <small class="detail">（{{ post.品詞 }}）</small>
     </h1>
     <ContentRenderer :value="post" />
@@ -25,5 +25,6 @@ const { data: post } = await useAsyncData(`blog-${slug}`, () => {
 <style lang="scss" scoped>
 .detail {
   font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 18px;
 }
 </style>
