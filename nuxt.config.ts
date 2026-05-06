@@ -9,6 +9,16 @@ export default defineNuxtConfig({
     }
   },
   compatibilityDate: '2025-07-15',
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          theme: 'night-owl',
+          langs: ['js', 'jsx', 'ts', 'tsx', 'svelte']
+        },
+      }
+    }
+  },
   css: [
     '@unocss/reset/sanitize/sanitize.css',
     '@unocss/reset/sanitize/assets.css',
