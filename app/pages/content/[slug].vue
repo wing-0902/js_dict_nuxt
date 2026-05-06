@@ -18,7 +18,7 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
 
 <template>
   <!-- Render the blog post as Prose & Vue components -->
-  <div v-if="post">
+  <div w-full v-if="post">
     <h1>
       {{ post.title }}
       <small
@@ -51,6 +51,8 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
 
 .content {
   padding: 0 4px;
+  overflow-x: hidden;
+  width: 100%;
   :deep() {
     h2, h3, h4, h5, h6 {
       a {

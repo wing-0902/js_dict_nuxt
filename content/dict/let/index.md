@@ -2,3 +2,65 @@
 title: let
 品詞: 変数宣言
 ---
+
+## 1. 変数を宣言
+
+変数を宣言しますが，主にあとで変更する可能性があるものに対して使います．
+
+### 例１：ログイン状態を管理する
+以下の例では，ログインの成功を示す変数（`loginSuccessful`）が真であった場合のみ，変数`isLoggedIn`を真にしています．
+
+::code-tab{title='index.js'}
+```js
+let isLoggedIn = false;
+// ...
+if (loginSuccessful) {
+  isLoggedIn = true; // 状態の更新
+}
+```
+::
+
+### 例２：SvelteでリアクティブなUIを作る
+以下の例は，[Svelte](https://svelte.dev)というフレームワークで，変数`displayName`を操作するコードです．  
+`bind:value`は，`<input>`（HTMLのテキストボックス）内の文字列と，変数を同期するための属性で，テキストボックスを書き換えると変数`displayName`も書き換えられるため，再代入が可能な`let`を使って宣言します．
+
+::code-tab{title='Config.svelte'}
+```svelte
+<script>
+  let displayName = '太郎';
+</script>
+
+<div>
+  <input type="text" bind:value={displayName} />
+</div>
+```
+::
+
+## 2. [`const`](/content/const/)との違い
+
+`const`も`let`も，変数を宣言するという意味では，基本的な役割は同じであるように思われます．
+
+例えば，`let`と[`const`](/content/const/)それぞれを使って，円周率の変数を作ってみましょう．  
+その時に間違って（わざと）他の値を再代入してみると，違いが明らかになります．
+
+::code-tab{title='let.js'}
+```js
+let PI = 3.14; // 変数PIは3.14になりました
+
+PI = 3; // PIに3を代入しました
+
+console.log('円周率：', PI); // console.logは，ターミナルに実行結果を表示する関数ですが，この場合は「円周率： 3」と表示されます
+```
+::
+
+::code-tab{title='const.js'}
+```js
+const PI = 3.14; // 定数PIは3.14になりました
+
+PI = 3; // PIは定数なので，代入しようとするとエラーが発生して，処理が中断されます．
+
+console.log('円周率：', PI); // 従って，このコードはそもそも実行されません．
+```
+::
+
+結局のところ，間違えて再代入している部分がある時にいち早く気づくため（エディタが警告してくれる場合が多いです），基本的には`const`が推奨されます．ただし，状態の管理や，UIと連動する変数など，明らかに宣言後に変化しうる変数については，`let`を使う必要があります．
