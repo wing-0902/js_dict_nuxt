@@ -16,12 +16,18 @@ const mode = ref('見出し');
         ></button>
       </div>
       <div mt-2 h-8 w-full flex class="changeButtonSlot">
-        <button :class="{select: mode === '見出し'}" @click="mode = '見出し'">見出し</button>
-        <button :class="{select: mode === '用例'}" @click="mode = '用例'">用例</button>
-        <button :class="{select: mode === '全文'}" @click="mode = '全文'">全文</button>
+        <button :class="{ select: mode === '見出し' }" @click="mode = '見出し'">
+          見出し
+        </button>
+        <button :class="{ select: mode === '用例' }" @click="mode = '用例'">
+          用例
+        </button>
+        <button :class="{ select: mode === '全文' }" @click="mode = '全文'">
+          全文
+        </button>
       </div>
 
-      <div class='others' h-full w-full mt-3>
+      <div class="others" h-full w-full mt-3>
         <TitleSearch v-if="mode === '見出し'" />
       </div>
     </section>
@@ -73,5 +79,10 @@ const mode = ref('見出し');
       }
     }
   }
+}
+
+.others {
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 </style>
