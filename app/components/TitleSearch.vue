@@ -41,7 +41,6 @@ const { data: words } = await useAsyncData('all-dictionary', async () => {
     a {
       color: var(--themeColor);
       text-decoration: none;
-      
     }
   }
 }

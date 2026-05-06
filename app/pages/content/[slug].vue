@@ -8,6 +8,10 @@ useSeoMeta({
   title: post.value?.title + ' - JavaScript'
 });
 
+definePageMeta({
+  contentMain: true
+})
+
 const route = useRoute();
 route.meta.menuTitle = post.value?.title || 'Dictionary';
 </script>

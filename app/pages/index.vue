@@ -1,7 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
   hideSidebar: false,
-  contentMain: true,
+  contentMain: false,
   menuTitle: 'Welcome!'
 });
 </script>
