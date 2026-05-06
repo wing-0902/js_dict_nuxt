@@ -56,7 +56,7 @@ const route = useRoute();
 
 .sidebar {
   flex-shrink: 0;
-  width: 460px;
+  width: var(--searchWidth);
   &.hidden {
     display: none;
   }
