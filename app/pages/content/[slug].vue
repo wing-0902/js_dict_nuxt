@@ -1,8 +1,12 @@
 <script setup lang="ts">
 const slug = useRoute().params.slug;
-const { data: post } = await useAsyncData(`blog-${slug}`, () => {
+const { data: post } = await useAsyncData(`dict-${slug}`, () => {
   return queryCollection('dictionary').path(`/dict/${slug}`).first();
 });
+
+useSeoMeta({
+  title: post.value?.title + " - JavaScript"
+})
 </script>
 
 <template>
