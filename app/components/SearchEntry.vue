@@ -3,7 +3,7 @@ const query = ref('');
 </script>
 
 <template>
-  <div h-full w-full p-3>
+  <div h-full w-full p-3 pr-1>
     <section h-full w-full p-3 class="root">
       <div h-10 class="searchSlot">
         <input h-full w-full type="text" v-model="query" />

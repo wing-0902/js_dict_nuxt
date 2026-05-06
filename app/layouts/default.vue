@@ -20,16 +20,25 @@ const route = useRoute();
       </div>
       <div
         h-full
+        pb-3
+        pr-4
+        pl-2
         class="contentSlot"
         :class="{ contentMain: route.meta.contentMain }"
       >
-        <div h-8>
-          {{ route.meta.menuTitle || 'Dictionary' }}
+        <div h-8 w-full>
+          <div h-full w-full class='menuBar' flex justify-center items-center>
+            {{ route.meta.menuTitle || 'Dictionary' }}
+          </div>
         </div>
         <div class="slotBox">
           <slot />
         </div>
-        <div h-8></div>
+        <div h-8 w-full>
+          <div h-full w-full class='menuBar' flex justify-center items-center>
+            Share
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -56,6 +65,11 @@ const route = useRoute();
       display: none;
     }
   }
+}
+
+.menuBar {
+  backdrop-filter: brightness(1.2);
+  border-radius: 16px;
 }
 
 .contentSlot {
