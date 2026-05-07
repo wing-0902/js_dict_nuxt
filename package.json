@@ -8,7 +8,10 @@
     "dev": "nuxt dev",
     "format": "prettier --write .",
     "generate": "nuxt generate",
+    "pagefind:code_only": "pnpm exec pagefind --site dist/content --root-selector 'h1, .exampleUsageForPagefindCodeIndex' --output-path dist/code_only_search",
+    "pagefind:full": "pnpm exec pagefind --site dist/content --output-path dist/content_search",
     "preview": "nuxt preview",
+    "postgenerate": "pnpm pagefind:full && pnpm pagefind:code_only",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
@@ -21,6 +24,7 @@
     "better-sqlite3": "^12.9.0",
     "dexie": "^4.4.2",
     "nuxt": "^4.4.4",
+    "pagefind": "1.5.2",
     "vue": "^3.5.33",
     "vue-router": "^5.0.6",
     "zod": "^4.4.3"
