@@ -18,7 +18,7 @@ const route = useRoute();
       >
         <SearchEntry />
       </div>
-      <div
+      <main
         h-full
         pb-3
         pr-4
@@ -31,15 +31,15 @@ const route = useRoute();
             {{ route.meta.menuTitle || 'Dictionary' }}
           </div>
         </div>
-        <div class="slotBox">
+        <article class="slotBox">
           <slot />
-        </div>
+        </article>
         <div h-8 w-full>
           <div h-full w-full class="menuBar" flex justify-center items-center>
             <Share />
           </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
 </template>

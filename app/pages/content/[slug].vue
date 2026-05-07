@@ -19,9 +19,9 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
 
 <template>
   <!-- Render the blog post as Prose & Vue components -->
-  <div w-full v-if="post" class="root">
+  <div data-pagefind-body w-full v-if="post" class="root">
     <h1>
-      {{ post.title }}
+      <span data-pagefind-meta='title'>{{ post.title }}</span>
       <small
         class="detail"
         i-hugeicons-java-script
