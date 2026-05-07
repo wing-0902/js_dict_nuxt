@@ -36,7 +36,7 @@ const route = useRoute();
         </div>
         <div h-8 w-full>
           <div h-full w-full class="menuBar" flex justify-center items-center>
-            Share
+            <Share />
           </div>
         </div>
       </div>

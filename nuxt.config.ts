@@ -25,5 +25,5 @@ export default defineNuxtConfig({
     '~/assets/global.scss'
   ],
   devtools: { enabled: true },
-  modules: ['@nuxt/content', '@unocss/nuxt']
+  modules: ['@nuxt/content', '@unocss/nuxt'],
 });

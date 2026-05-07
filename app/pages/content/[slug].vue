@@ -9,7 +9,8 @@ useSeoMeta({
 });
 
 definePageMeta({
-  contentMain: true
+  contentMain: true,
+  share: true
 });
 
 const route = useRoute();
