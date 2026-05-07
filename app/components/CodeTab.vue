@@ -1,55 +1,55 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 const props = defineProps({
-    title: String
-})
+  title: String
+});
 </script>
 
 <template>
-<div w-full class="root">
-  <div w-full class="header">
-    <div class="tab">
-      <p>{{ props.title }}</p>
+  <div w-full class="root">
+    <div w-full class="header">
+      <div class="tab">
+        <p>{{ props.title }}</p>
+      </div>
+    </div>
+    <div w-full class="children">
+      <slot />
     </div>
   </div>
-  <div w-full class="children">
-    <slot />
-  </div>
-</div>
 </template>
 
 <style lang="scss" scoped>
-  .root {
-    margin: 8px auto;
-    background-color: var(--codeBack);
-    border-radius: 4px;
-    border: 0.5px solid var(--borderColor);
-    .header {
-      display: flex;
-      margin-bottom: -13px;
-      background-color: var(--background);
-      border-radius: 3.5px;
-      border-bottom: 1px solid var(--themeColor);
-      .tab {
-        background-color: var(--codeBack);
-        margin: auto 5px -1px 0;
-        padding: 7px;
-        min-width: 160px;
-        max-width: calc(100% - 20px);
-        align-items: center;
-        border-radius: 10px 10px 0 0;
+.root {
+  margin: 8px auto;
+  background-color: var(--codeBack);
+  border-radius: 4px;
+  border: 0.5px solid var(--borderColor);
+  .header {
+    display: flex;
+    margin-bottom: -13px;
+    background-color: var(--background);
+    border-radius: 3.5px;
+    border-bottom: 1px solid var(--themeColor);
+    .tab {
+      background-color: var(--codeBack);
+      margin: auto 5px -1px 0;
+      padding: 7px;
+      min-width: 160px;
+      max-width: calc(100% - 20px);
+      align-items: center;
+      border-radius: 10px 10px 0 0;
 
-        p {
-          margin: 0;
-          font-family: "Fira Code Variable", "Zen Kaku Gothic New", monospace;
-        }
-      }
-    }
-    .children {
-      margin: 0 0 -7px;
-      padding: 0;
-      :deep() {
-        overflow-x: scroll;
+      p {
+        margin: 0;
+        font-family: 'Fira Code Variable', 'Zen Kaku Gothic New', monospace;
       }
     }
   }
+  .children {
+    margin: 0 0 -7px;
+    padding: 0;
+    :deep() {
+      overflow-x: scroll;
+    }
+  }
+}
 </style>

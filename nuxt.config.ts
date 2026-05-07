@@ -15,7 +15,7 @@ export default defineNuxtConfig({
         highlight: {
           theme: 'night-owl',
           langs: ['js', 'jsx', 'ts', 'tsx', 'svelte']
-        },
+        }
       }
     }
   },
@@ -25,5 +25,5 @@ export default defineNuxtConfig({
     '~/assets/global.scss'
   ],
   devtools: { enabled: true },
-  modules: ['@nuxt/content', '@unocss/nuxt'],
+  modules: ['@nuxt/content', '@unocss/nuxt']
 });

@@ -19,7 +19,7 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
 
 <template>
   <!-- Render the blog post as Prose & Vue components -->
-  <div w-full v-if="post" class='root'>
+  <div w-full v-if="post" class="root">
     <h1>
       {{ post.title }}
       <small
@@ -34,7 +34,7 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
       ></small>
       <small class="detail">（{{ post.品詞 }}）</small>
     </h1>
-    <div w-full class='content'>
+    <div w-full class="content">
       <ContentRenderer :value="post" />
     </div>
   </div>
@@ -59,7 +59,11 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
   padding: 0 4px;
   overflow-x: hidden;
   :deep() {
-    h2, h3, h4, h5, h6 {
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       a {
         color: white;
         text-decoration: none;
