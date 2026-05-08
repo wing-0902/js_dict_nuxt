@@ -11,7 +11,7 @@ const props = defineProps({
         <p>{{ props.title }}</p>
       </div>
     </div>
-    <div w-full class="children .exampleUsageForPagefindCodeIndex">
+    <div w-full class="children exampleUsageForPagefindCodeIndex">
       <slot />
     </div>
   </div>
