@@ -1,6 +1,8 @@
 <script setup lang="ts">
 const query = ref('');
 const mode = ref('見出し');
+
+const showHistory = ref(false);
 </script>
 
 <template>
@@ -28,6 +30,7 @@ const mode = ref('見出し');
           w-7
           i-material-symbols-light:history-2-rounded
           class="historyButton"
+          @click="showHistory = true"
         ></button>
       </div>
       <div mt-2 h-8 w-full flex class="changeButtonSlot">
@@ -49,6 +52,7 @@ const mode = ref('見出し');
       </div>
     </section>
   </div>
+
 </template>
 
 <style lang="scss" scoped>
