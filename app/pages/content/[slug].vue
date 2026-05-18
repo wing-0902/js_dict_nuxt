@@ -27,13 +27,14 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
         i-hugeicons-java-script
         v-if="post.jsInclude"
         data-pagefind-meta="jsInclude:true"
-        data-pagefind-filter="jsInclude:true"
         title="JavaScript"
       ></small>
       <small
         class="detail"
         i-hugeicons-typescript-01
         v-if="post.tsInclude"
+        data-pagefind-meta="tsInclude:true"
+        title="TypeScript"
       ></small>
       <small class="detail">（
         <span data-pagefind-meta='category'>{{ post.品詞 }}</span>

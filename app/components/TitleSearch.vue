@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import saveHistory from '~/lib/saveHistoryToIndexedDB';
 
 const props = defineProps({
   query: String
@@ -21,10 +20,9 @@ const filteredWords = computed(() => {
 
   const searchLower = props.query.toLowerCase();
   return words.value?.filter((word) => {
-    // タイトルまたはパスに検索語が含まれているかチェック
+    // タイトルに検索語が含まれているかチェック
     return (
-      word.title?.toLowerCase().includes(searchLower) ||
-      word.path?.toLowerCase().includes(searchLower)
+      word.title?.toLowerCase().includes(searchLower)
     );
   });
 });
@@ -33,28 +31,31 @@ async function handleSaveHistory(word: string | undefined) {
   if (!word || word.trim() === '') return;
 
   if (typeof window !== 'undefined') {
-    await saveHistory(word);
+    return
   }
 }
 </script>
 
 <template>
-  <ul v-if="filteredWords?.length" class="listRoot">
+  <ul h-full v-if="filteredWords?.length" class="listRoot">
     <template v-for="word in filteredWords" :key="word.path">
       <hr />
       <li w-full>
         <NuxtLink
           @mousedown="handleSaveHistory(query)"
           :to="word.actualPath"
-          flex
           w-full
-          justify-between
         >
+          <div flex w-full justify-between m-0>
           {{ word.title }}
           <div>
             <span v-if="word.jsInclude" i-hugeicons-java-script></span>
             <span v-if="word.tsInclude" i-hugeicons-typescript-01></span>
           </div>
+          </div>
+          <template v-if="word.品詞">
+            <p class='category' m-0 text-right>{{ word.品詞 }}</p>
+          </template>
         </NuxtLink>
       </li>
     </template>
@@ -77,6 +78,10 @@ async function handleSaveHistory(word: string | undefined) {
     a {
       color: var(--themeColor);
       text-decoration: none;
+      .category {
+        font-family: 'Zen Kaku Gothic New', sans-serif;
+        font-size: 18px;
+      }
     }
   }
 }

@@ -31,7 +31,9 @@ const mode = ref('見出し');
       </div>
 
       <div class="others" h-full w-full mt-3>
-        <TitleSearch :query="query" v-if="mode === '見出し'" />
+        <PagefindContent :query="query" v-if="mode === '全文'" />
+        <PagefindExample :query="query" v-else-if="mode === '用例'" />
+        <TitleSearch :query="query" v-else />
       </div>
     </section>
   </div>
