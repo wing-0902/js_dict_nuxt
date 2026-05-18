@@ -2,7 +2,6 @@
 const route = useRoute();
 
 const open = ref(false);
-
 </script>
 
 <template>
@@ -12,13 +11,10 @@ const open = ref(false);
     i-hugeicons-share-03
     @click="open = true"
   ></button>
-  <div class='shareSheet'>
-
-  </div>
+  <div class="shareSheet"></div>
 </template>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .shareSheet {
-  
 }
 </style>

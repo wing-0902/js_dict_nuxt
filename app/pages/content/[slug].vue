@@ -21,7 +21,7 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
   <!-- Render the blog post as Prose & Vue components -->
   <div data-pagefind-body w-full v-if="post" class="root">
     <h1>
-      <span data-pagefind-meta='title'>{{ post.title }}</span>
+      <span data-pagefind-meta="title">{{ post.title }}</span>
       <small
         class="detail"
         i-hugeicons-java-script
@@ -36,9 +36,11 @@ route.meta.menuTitle = post.value?.title || 'Dictionary';
         data-pagefind-meta="tsInclude:true"
         title="TypeScript"
       ></small>
-      <small class="detail">（
-        <span data-pagefind-meta='category'>{{ post.品詞 }}</span>
-        ）</small>
+      <small class="detail"
+        >（
+        <span data-pagefind-meta="category">{{ post.品詞 }}</span>
+        ）</small
+      >
     </h1>
     <div w-full class="content">
       <ContentRenderer :value="post" />

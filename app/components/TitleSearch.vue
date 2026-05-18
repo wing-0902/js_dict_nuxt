@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { addToHistory } from '~/utils/handleHistory';
 
 const props = defineProps({
   query: String
@@ -21,9 +22,7 @@ const filteredWords = computed(() => {
   const searchLower = props.query.toLowerCase();
   return words.value?.filter((word) => {
     // タイトルに検索語が含まれているかチェック
-    return (
-      word.title?.toLowerCase().includes(searchLower)
-    );
+    return word.title?.toLowerCase().includes(searchLower);
   });
 });
 
@@ -31,7 +30,7 @@ async function handleSaveHistory(word: string | undefined) {
   if (!word || word.trim() === '') return;
 
   if (typeof window !== 'undefined') {
-    return
+    addToHistory(word);
   }
 }
 </script>
@@ -47,14 +46,14 @@ async function handleSaveHistory(word: string | undefined) {
           w-full
         >
           <div flex w-full justify-between m-0>
-          {{ word.title }}
-          <div>
-            <span v-if="word.jsInclude" i-hugeicons-java-script></span>
-            <span v-if="word.tsInclude" i-hugeicons-typescript-01></span>
-          </div>
+            {{ word.title }}
+            <div>
+              <span v-if="word.jsInclude" i-hugeicons-java-script></span>
+              <span v-if="word.tsInclude" i-hugeicons-typescript-01></span>
+            </div>
           </div>
           <template v-if="word.品詞">
-            <p class='category' m-0 text-right>{{ word.品詞 }}</p>
+            <p class="category" m-0 text-right>{{ word.品詞 }}</p>
           </template>
         </NuxtLink>
       </li>

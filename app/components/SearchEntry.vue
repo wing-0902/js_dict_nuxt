@@ -8,7 +8,19 @@ const mode = ref('見出し');
     <section h-full w-full flex flex-col p-3 class="root">
       <div h-10 w-full flex class="searchSlot">
         <input h-full w-full type="text" placeholder="検索.." v-model="query" />
-        <button bg-transparent h-full w-10 class='delAll' flex items-center justify-center text-4 text-white border-0 @click="query = ''">
+        <button
+          bg-transparent
+          h-full
+          w-10
+          class="delAll"
+          flex
+          items-center
+          justify-center
+          text-4
+          text-white
+          border-0
+          @click="query = ''"
+        >
           <span i-hugeicons-cancel-01></span>
         </button>
         <button
