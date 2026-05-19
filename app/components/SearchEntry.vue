@@ -1,8 +1,6 @@
 <script setup lang="ts">
 const query = ref('');
 const mode = ref('見出し');
-
-const showHistory = ref(false);
 </script>
 
 <template>
@@ -25,13 +23,7 @@ const showHistory = ref(false);
         >
           <span i-hugeicons-cancel-01></span>
         </button>
-        <button
-          h-full
-          w-7
-          i-material-symbols-light:history-2-rounded
-          class="historyButton"
-          @click="showHistory = true"
-        ></button>
+        <History v-model:currentQuery="query" />
       </div>
       <div mt-2 h-8 w-full flex class="changeButtonSlot">
         <button :class="{ select: mode === '見出し' }" @click="mode = '見出し'">
