@@ -23,7 +23,7 @@ let pagefind: any = null;
 
 // pageSize を削除
 const PAGEFIND_OPTIONS = {
-  bundlePath: 'https://nuxt-js.dictionary4.dev/code_only_search/',
+  bundlePath: 'https://js.dictionary4.dev/code_only_search/',
   baseUrl: '/content/'
 };
 
