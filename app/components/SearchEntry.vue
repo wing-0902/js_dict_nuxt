@@ -52,7 +52,6 @@ const showHistory = ref(false);
       </div>
     </section>
   </div>
-
 </template>
 
 <style lang="scss" scoped>
