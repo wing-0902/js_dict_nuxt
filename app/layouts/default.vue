@@ -18,7 +18,8 @@ const route = useRoute();
           contentMain: route.meta.contentMain
         }"
       >
-        <SearchEntry />
+        <InfoList v-if="route.meta.sidebarContent === 'info'" />
+        <SearchEntry v-else />
       </div>
       <main
         h-full
@@ -31,7 +32,9 @@ const route = useRoute();
         <div h-8 w-full>
           <div h-full w-full class="menuBar" flex justify-between items-center>
             <span w-15>
-              <NuxtLink class="back" to="/">＜戻る</NuxtLink>
+              <NuxtLink class="back" :to="route.meta.returnTo || '/'"
+                >＜戻る</NuxtLink
+              >
             </span>
             <span>{{ route.meta.menuTitle || 'Dictionary' }}</span>
             <span w-15></span>

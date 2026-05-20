@@ -1,8 +1,10 @@
 <script setup lang="ts">
 definePageMeta({
   hideSidebar: false,
+  sidebarContent: 'search',
   contentMain: false,
-  menuTitle: 'Welcome!'
+  menuTitle: 'Welcome!',
+  returnTo: '/'
 });
 </script>
 
