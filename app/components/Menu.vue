@@ -28,6 +28,10 @@ onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside);
 });
 
+const close = () => {
+  isOpen.value = false;
+};
+
 const handleShare = () => {
   if (navigator.share) {
     navigator
@@ -41,7 +45,7 @@ const handleShare = () => {
   } else {
     alert('このブラウザはWeb Share APIに対応していません．');
   }
-  isOpen.value = false;
+  close();
 };
 
 // メニュー項目の操作処理
@@ -54,7 +58,7 @@ const copyUrlScheme = () => {
       alert('URLスキームのコピーに失敗しました．');
     }
   );
-  isOpen.value = false;
+  close();
 };
 </script>
 
@@ -89,12 +93,12 @@ const copyUrlScheme = () => {
           <!-- 区切りは <li my-1></li> で表記 -->
           <li>
             <NuxtLink to="/info/app/" custom v-slot="{ navigate }">
-              <button @click="navigate" role="link">このAppについて</button>
+              <button @click="close(), navigate()" role="link">このAppについて</button>
             </NuxtLink>
           </li>
           <li>
             <NuxtLink to="/info/contents/" custom v-slot="{ navigate }">
-              <button @click="navigate" role="link">コンテンツの著作権</button>
+              <button @click="close(), navigate()" role="link">コンテンツの著作権</button>
             </NuxtLink>
           </li>
 

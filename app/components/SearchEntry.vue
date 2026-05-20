@@ -1,6 +1,8 @@
 <script setup lang="ts">
-const query = ref('');
-const mode = ref('見出し');
+import { useStorage } from '@vueuse/core'
+
+const query = useStorage('dict-search-query', '')
+const mode = useStorage('dict-search-mode', '見出し');
 </script>
 
 <template>

@@ -21,6 +21,7 @@
     "@fontsource/zen-maru-gothic": "^5.2.8",
     "@nuxt/content": "^3.13.0",
     "@unocss/reset": "^66.6.8",
+    "@vueuse/core": "^14.3.0",
     "better-sqlite3": "^12.9.0",
     "idb-keyval": "^6.2.2",
     "nuxt": "^4.4.4",

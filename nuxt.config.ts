@@ -28,7 +28,7 @@ export default defineNuxtConfig({
   modules: ['@nuxt/content', '@unocss/nuxt'],
   vite: {
     optimizeDeps: {
-      include: ['@vue/devtools-core', '@vue/devtools-kit']
+      include: ['@vue/devtools-core', '@vue/devtools-kit', '@vueuse/core']
     }
   }
 });
