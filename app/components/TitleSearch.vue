@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { addToHistory } from '~/utils/handleHistory';
 
 const props = defineProps({
   query: String
@@ -25,14 +24,6 @@ const filteredWords = computed(() => {
     return word.title?.toLowerCase().includes(searchLower);
   });
 });
-
-async function handleSaveHistory(word: string | undefined) {
-  if (!word || word.trim() === '') return;
-
-  if (typeof window !== 'undefined') {
-    addToHistory(word);
-  }
-}
 </script>
 
 <template>
@@ -40,11 +31,7 @@ async function handleSaveHistory(word: string | undefined) {
     <template v-for="word in filteredWords" :key="word.path">
       <hr />
       <li w-full>
-        <NuxtLink
-          @mousedown="handleSaveHistory(query)"
-          :to="word.actualPath"
-          w-full
-        >
+        <NuxtLink :to="word.actualPath" w-full>
           <div flex w-full justify-between m-0>
             {{ word.title }}
             <div>

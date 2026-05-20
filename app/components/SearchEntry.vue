@@ -6,7 +6,7 @@ const mode = ref('見出し');
 <template>
   <div h-full w-full p-3 pr-1>
     <section h-full w-full flex flex-col p-3 class="root">
-      <div h-10 w-full flex class="searchSlot">
+      <div h-10 w-full flex p-0 class="searchSlot">
         <input h-full w-full type="text" placeholder="検索.." v-model="query" />
         <button
           bg-transparent
@@ -19,11 +19,12 @@ const mode = ref('見出し');
           text-4
           text-white
           border-0
+          m-0
           @click="query = ''"
+          v-if="query"
         >
           <span i-hugeicons-cancel-01></span>
         </button>
-        <History v-model:currentQuery="query" />
       </div>
       <div mt-2 h-8 w-full flex class="changeButtonSlot">
         <button :class="{ select: mode === '見出し' }" @click="mode = '見出し'">
@@ -67,7 +68,7 @@ const mode = ref('見出し');
     }
     .delAll {
       position: absolute;
-      right: 25px;
+      right: 0;
     }
   }
 

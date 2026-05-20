@@ -4,8 +4,10 @@ const route = useRoute();
 
 <template>
   <div class="root" m-0 p-0 flex flex-col>
-    <div class="header" m-0>
+    <div h-11 m-0 flex justify-between>
+      <span></span>
       <Header />
+      <Menu />
     </div>
     <div class="content" m-0 flex>
       <div
@@ -27,8 +29,12 @@ const route = useRoute();
         :class="{ contentMain: route.meta.contentMain }"
       >
         <div h-8 w-full>
-          <div h-full w-full class="menuBar" flex justify-center items-center>
-            {{ route.meta.menuTitle || 'Dictionary' }}
+          <div h-full w-full class="menuBar" flex justify-between items-center>
+            <span w-15>
+              <NuxtLink class="back" to="/">＜戻る</NuxtLink>
+            </span>
+            <span>{{ route.meta.menuTitle || 'Dictionary' }}</span>
+            <span w-15></span>
           </div>
         </div>
         <article class="slotBox">
@@ -46,11 +52,8 @@ const route = useRoute();
 
 <style lang="scss" scoped>
 .root {
-  .header {
-    height: 45px;
-  }
   .content {
-    height: calc(100dvh - 45px);
+    height: calc(100dvh - 44px);
   }
 }
 
@@ -71,16 +74,25 @@ const route = useRoute();
 .menuBar {
   backdrop-filter: brightness(1.2);
   border-radius: 16px;
+  .back {
+    display: none;
+    @media (max-width: 900px) {
+      display: block;
+    }
+  }
 }
 
 .contentSlot {
   flex: 1;
+  display: block;
   min-width: 0;
   @media (max-width: 900px) {
     width: 0;
     flex: none;
+    display: none;
     &.contentMain {
       width: 100%;
+      display: block;
     }
   }
 }

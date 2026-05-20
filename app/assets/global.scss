@@ -20,3 +20,8 @@ body {
   font-family: 'Zen Kaku Gothic New', sans-serif;
   overscroll-behavior: none;
 }
+
+a {
+  color: var(--themeColor);
+  text-decoration: none;
+}

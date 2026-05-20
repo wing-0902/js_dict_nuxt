@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { ref, onMounted, watch } from 'vue';
 import { 結果なし, 検索中, 表示中 } from '~/var/msg.ts';
-import { addToHistory } from '~/utils/handleHistory';
 
 // CSS
 import '~/assets/pagefindUi.scss';
@@ -87,14 +86,6 @@ onMounted(async () => {
     console.error('Pagefind library or initialization failed.', e);
   }
 });
-
-async function handleSave(word: string) {
-  if (!word || word.trim() === '') return;
-
-  if (typeof window !== 'undefined') {
-    await addToHistory(word);
-  }
-}
 </script>
 
 <template>
@@ -109,12 +100,7 @@ async function handleSave(word: string) {
         <template v-for="result in searchResults" :key="result.url">
           <hr />
           <li class="項目">
-            <NuxtLink
-              class="項目リンク"
-              :href="result.url"
-              @mousedown="handleSave(props.query)"
-              text-left
-            >
+            <NuxtLink class="項目リンク" :href="result.url" text-left>
               <h2>{{ result.meta.title || result.url }}</h2>
               <p text-white class="詳細" v-html="result.excerpt"></p>
             </NuxtLink>
