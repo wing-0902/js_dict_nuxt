@@ -37,7 +37,6 @@ const handleShare = () => {
       })
       .catch((error) => {
         console.error('共有に失敗:', error);
-        alert('共有に失敗しました．');
       });
   } else {
     alert('このブラウザはWeb Share APIに対応していません．');
