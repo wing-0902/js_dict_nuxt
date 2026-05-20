@@ -8,6 +8,9 @@ definePageMeta({
 });
 </script>
 
-<template lang='pug'>
-h1 このアプリについて
+<template>
+  <h1 leading-none>
+    JavaScript<br />
+    <small text-4>Dictionary for Developers</small>
+  </h1>
 </template>
