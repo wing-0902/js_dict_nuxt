@@ -89,7 +89,7 @@ const copyUrlScheme = () => {
         <ul list-none p-1 m-0>
           <!-- 区切りは <li my-1></li> で表記 -->
           <li>
-            <button @click="isOpen = false">共有</button>
+            <button @click="handleShare">共有</button>
           </li>
           <li>
             <button @click="copyUrlScheme">URLスキームをコピー</button>
